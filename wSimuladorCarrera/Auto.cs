@@ -36,7 +36,7 @@ namespace wSimuladorCarrera
             
         }
 
-        public abstract int Avanzar(string clima);
+        public abstract int Avanzar(string clima, int avance);
 
         public void calcularAcance(int metros)
         {

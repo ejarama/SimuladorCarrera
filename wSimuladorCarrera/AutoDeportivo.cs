@@ -9,9 +9,9 @@ namespace wSimuladorCarrera
     public class AutoDeportivo : Auto
     {
         public AutoDeportivo(string nombre) : base(nombre, "Deportivo"){}
-        public override int Avanzar(string clima)
+        public override int Avanzar(string clima, int avance)
         {
-            int avance = new Random().Next(5, 16);
+            
             if(clima == "soleado")
                 avance += 3;
             return avance;

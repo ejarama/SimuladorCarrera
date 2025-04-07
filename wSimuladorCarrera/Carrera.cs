@@ -92,15 +92,16 @@ namespace wSimuladorCarrera
 
                 foreach (var auto in Participantes)
                 {
-                    int avance = auto.Avanzar(Clima);
+                    int avanceBase = random.Next(5, 16);
+                    int avanceTotal = auto.Avanzar(Clima, avanceBase);
                     if (hayObstaculo && indiceParticipante == Participantes.IndexOf(auto))
                     {
-                        avance = Math.Max(0, avance - 5);
+                        avanceTotal = Math.Max(0, avanceTotal - 5);
                         resultado += $"{auto.Nombre} encontró un obstáculo (-5m) de anvace.\n";
                     }
 
-                    auto.calcularAcance(avance);
-                    resultado += $"{auto.Nombre} avanza {avance} metros, Total recorrido {Math.Min(150,auto.DistanciaRecorrida)}\n";
+                    auto.calcularAcance(avanceTotal);
+                    resultado += $"{auto.Nombre} avanza {avanceTotal} metros, Total recorrido {Math.Min(150,auto.DistanciaRecorrida)}\n";
 
                     if(auto.DistanciaRecorrida >= 150)
                     {

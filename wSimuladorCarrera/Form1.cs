@@ -32,6 +32,7 @@ namespace wSimuladorCarrera
         {
             txtNombre.Clear();
             cmbTipo.SelectedIndex = -1;
+            lblMensajes.Text = "";
         }
         private void btnAgregarAuto_Click(object sender, EventArgs e)
         {
@@ -140,6 +141,18 @@ namespace wSimuladorCarrera
             lblMensajes.Text = "Resultados: \n" + mensaje;
         }
 
-        
+        private void btnReiniciar_Click(object sender, EventArgs e)
+        {
+            btnAgregarAuto.Enabled = true;
+            btnIniciarCarrera.Enabled = true;
+            btnSigTurno.Enabled = false;
+            cmbClima.SelectedIndex = -1;
+            
+            lblMensajes.Text = "Carrera reiniciada. Ingrese nuevos autos.";
+            lstParticipantes.Items.Clear();
+            panelBarras.Controls.Clear();
+            Carrera.Instancia.reiniciarCarrera();
+            
+        }
     }
 }

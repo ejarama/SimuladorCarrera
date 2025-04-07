@@ -212,10 +212,14 @@ namespace wSimuladorCarrera
             // 
             // panelBarras
             // 
+            this.panelBarras.AutoSize = true;
+            this.panelBarras.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelBarras.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.panelBarras.Location = new System.Drawing.Point(54, 295);
             this.panelBarras.Name = "panelBarras";
-            this.panelBarras.Size = new System.Drawing.Size(272, 177);
+            this.panelBarras.Size = new System.Drawing.Size(0, 0);
             this.panelBarras.TabIndex = 15;
+            this.panelBarras.WrapContents = false;
             // 
             // btnReiniciar
             // 
@@ -227,12 +231,14 @@ namespace wSimuladorCarrera
             this.btnReiniciar.TabIndex = 16;
             this.btnReiniciar.Text = "Reiniciar Carrera";
             this.btnReiniciar.UseVisualStyleBackColor = false;
+            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(835, 500);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(835, 566);
             this.Controls.Add(this.lblMensajes);
             this.Controls.Add(this.btnReiniciar);
             this.Controls.Add(this.panelBarras);
