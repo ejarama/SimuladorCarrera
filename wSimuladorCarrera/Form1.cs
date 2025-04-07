@@ -17,6 +17,53 @@ namespace wSimuladorCarrera
             InitializeComponent();
         }
 
-      
+        private void ActualizarListaParticipantes(List<Auto> autosParticipantes)
+        {
+            lstParticipantes.Items.Clear();
+
+            foreach (var auto in autosParticipantes)
+            {
+                lstParticipantes.Items.Add(auto.Nombre + " Tipo: " + auto.Tipo);
+
+            }
+        }
+
+        private void limpiarCamposVehículo()
+        {
+            txtNombre.Clear();
+            cmbTipo.SelectedIndex = -1;
+        }
+        private void btnAgregarAuto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string nombre = "";
+                string tipo = "";
+
+                //Validaciones
+                if (string.IsNullOrEmpty(txtNombre.Text.Trim().ToUpper()))
+                    throw new ArgumentException("El nombre del vehículo no puede estar vacío");
+                else
+                    nombre = txtNombre.Text.Trim().ToUpper();
+
+                if (cmbTipo.SelectedIndex == -1)
+                    throw new ArgumentException("El tipo de vehículo no puede estar vacío");
+                else
+                    tipo = cmbTipo.SelectedItem.ToString();
+
+                //se crea el auto  y se agrega a la lista de participantes
+                var auto = AutoFactory.CrearAuto(nombre, tipo);
+                Carrera.Instancia.agregarAuto(auto);
+
+                ActualizarListaParticipantes(Carrera.Instancia.ObtenerParcipantes());
+                limpiarCamposVehículo();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK);
+            }
+        }
     }
 }

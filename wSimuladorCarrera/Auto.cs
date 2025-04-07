@@ -22,7 +22,7 @@ namespace wSimuladorCarrera
                     throw new ArgumentException("El nombre del auto no puede estar vacío");
                 this.Nombre = nombre;
 
-                if (string.IsNullOrEmpty(Tipo))
+                if (string.IsNullOrEmpty(tipo))
                     throw new ArgumentException("El tipo de auto no puede estar vacío");
                 this.Tipo = tipo;
 

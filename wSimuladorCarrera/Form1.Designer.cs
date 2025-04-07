@@ -41,6 +41,9 @@ namespace wSimuladorCarrera
             this.lblDatosCarrera = new System.Windows.Forms.Label();
             this.lblClima = new System.Windows.Forms.Label();
             this.cmbClima = new System.Windows.Forms.ComboBox();
+            this.btnIniciarCarrera = new System.Windows.Forms.Button();
+            this.btnSigTurno = new System.Windows.Forms.Button();
+            this.lblMensajes = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -114,22 +117,23 @@ namespace wSimuladorCarrera
             this.btnAgregarAuto.TabIndex = 6;
             this.btnAgregarAuto.Text = "Agregar";
             this.btnAgregarAuto.UseVisualStyleBackColor = false;
+            this.btnAgregarAuto.Click += new System.EventHandler(this.btnAgregarAuto_Click);
             // 
             // lstParticipantes
             // 
             this.lstParticipantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstParticipantes.FormattingEnabled = true;
             this.lstParticipantes.ItemHeight = 20;
-            this.lstParticipantes.Location = new System.Drawing.Point(622, 112);
+            this.lstParticipantes.Location = new System.Drawing.Point(626, 112);
             this.lstParticipantes.Name = "lstParticipantes";
-            this.lstParticipantes.Size = new System.Drawing.Size(221, 104);
+            this.lstParticipantes.Size = new System.Drawing.Size(221, 144);
             this.lstParticipantes.TabIndex = 7;
             // 
             // lblParticipantes
             // 
             this.lblParticipantes.AutoSize = true;
             this.lblParticipantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblParticipantes.Location = new System.Drawing.Point(672, 81);
+            this.lblParticipantes.Location = new System.Drawing.Point(652, 81);
             this.lblParticipantes.Name = "lblParticipantes";
             this.lblParticipantes.Size = new System.Drawing.Size(147, 20);
             this.lblParticipantes.TabIndex = 8;
@@ -139,7 +143,7 @@ namespace wSimuladorCarrera
             // 
             this.lblDatosCarrera.AutoSize = true;
             this.lblDatosCarrera.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatosCarrera.Location = new System.Drawing.Point(49, 196);
+            this.lblDatosCarrera.Location = new System.Drawing.Point(50, 191);
             this.lblDatosCarrera.Name = "lblDatosCarrera";
             this.lblDatosCarrera.Size = new System.Drawing.Size(147, 20);
             this.lblDatosCarrera.TabIndex = 9;
@@ -149,7 +153,7 @@ namespace wSimuladorCarrera
             // 
             this.lblClima.AutoSize = true;
             this.lblClima.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClima.Location = new System.Drawing.Point(47, 242);
+            this.lblClima.Location = new System.Drawing.Point(48, 237);
             this.lblClima.Name = "lblClima";
             this.lblClima.Size = new System.Drawing.Size(48, 20);
             this.lblClima.TabIndex = 11;
@@ -163,16 +167,50 @@ namespace wSimuladorCarrera
             "Soleado",
             "Lluvioso",
             "Ventoso"});
-            this.cmbClima.Location = new System.Drawing.Point(120, 234);
+            this.cmbClima.Location = new System.Drawing.Point(121, 229);
             this.cmbClima.Name = "cmbClima";
             this.cmbClima.Size = new System.Drawing.Size(121, 28);
             this.cmbClima.TabIndex = 10;
+            // 
+            // btnIniciarCarrera
+            // 
+            this.btnIniciarCarrera.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnIniciarCarrera.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIniciarCarrera.Location = new System.Drawing.Point(279, 228);
+            this.btnIniciarCarrera.Name = "btnIniciarCarrera";
+            this.btnIniciarCarrera.Size = new System.Drawing.Size(133, 28);
+            this.btnIniciarCarrera.TabIndex = 12;
+            this.btnIniciarCarrera.Text = "Iniciar Carrera";
+            this.btnIniciarCarrera.UseVisualStyleBackColor = false;
+            // 
+            // btnSigTurno
+            // 
+            this.btnSigTurno.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSigTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSigTurno.Location = new System.Drawing.Point(455, 228);
+            this.btnSigTurno.Name = "btnSigTurno";
+            this.btnSigTurno.Size = new System.Drawing.Size(133, 28);
+            this.btnSigTurno.TabIndex = 13;
+            this.btnSigTurno.Text = "Siguiente Turno";
+            this.btnSigTurno.UseVisualStyleBackColor = false;
+            // 
+            // lblMensajes
+            // 
+            this.lblMensajes.AutoSize = true;
+            this.lblMensajes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensajes.Location = new System.Drawing.Point(622, 307);
+            this.lblMensajes.Name = "lblMensajes";
+            this.lblMensajes.Size = new System.Drawing.Size(0, 20);
+            this.lblMensajes.TabIndex = 14;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(881, 514);
+            this.Controls.Add(this.lblMensajes);
+            this.Controls.Add(this.btnSigTurno);
+            this.Controls.Add(this.btnIniciarCarrera);
             this.Controls.Add(this.lblClima);
             this.Controls.Add(this.cmbClima);
             this.Controls.Add(this.lblDatosCarrera);
@@ -206,6 +244,9 @@ namespace wSimuladorCarrera
         private System.Windows.Forms.Label lblDatosCarrera;
         private System.Windows.Forms.Label lblClima;
         private System.Windows.Forms.ComboBox cmbClima;
+        private System.Windows.Forms.Button btnIniciarCarrera;
+        private System.Windows.Forms.Button btnSigTurno;
+        private System.Windows.Forms.Label lblMensajes;
     }
 }
 
