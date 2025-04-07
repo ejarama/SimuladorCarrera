@@ -12,11 +12,11 @@ namespace wSimuladorCarrera
         {
             switch (tipo)
             {
-                case "AutoDeportivo":
+                case "Deportivo":
                     return new AutoTodoterreno(nombre, tipo);
-                case "AutoTodoterreno":
+                case "Todoterreno":
                     return new AutoTodoterreno(nombre, tipo);
-                case "AutoHibrido":
+                case "Hibrido":
                     return new AutoTodoterreno(nombre, tipo);
                 default:
                     throw new ApplicationException("El tipo de auto no está definido");
