@@ -16,9 +16,23 @@ namespace wSimuladorCarrera
 
         public Auto(string nombre, string tipo )
         {
-            this.Nombre = nombre;
-            this.Tipo = tipo;
-            this.DistanciaRecorrida = 0;
+            try
+            {
+                if (string.IsNullOrEmpty(nombre))
+                    throw new ArgumentException("El nombre del auto no puede estar vacío");
+                this.Nombre = nombre;
+
+                if (string.IsNullOrEmpty(Tipo))
+                    throw new ArgumentException("El tipo de auto no puede estar vacío");
+                this.Tipo = tipo;
+
+                this.DistanciaRecorrida = 0;
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException("Error: "+ ex.Message);
+            }
             
         }
 
