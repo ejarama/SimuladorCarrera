@@ -1,0 +1,27 @@
+# Archivos de compilación
+bin/
+obj/
+
+# Configuración local
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos temporales
+*.log
+*.tmp
+
+# Archivos de ejecución
+*.exe
+*.dll
+*.pdb
+
+# Archivos de publicación
+publish/
+
+# Otros
+*.cache
+*.db
+*.sqlite
