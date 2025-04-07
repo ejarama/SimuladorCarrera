@@ -8,10 +8,14 @@ namespace wSimuladorCarrera
 {
     class AutoTodoterreno : Auto
     {
-        public AutoTodoterreno(string nombre, string tipo, int distanciaRecorrida):base(nombre, tipo, distanciaRecorrida) { }
-        public override void Avanzar()
+        public AutoTodoterreno(string nombre, string tipo):base(nombre, tipo) { }
+        public override int Avanzar(string clima)
         {
-            throw new NotImplementedException();    
+            int avance = new Random().Next(5, 16);
+            if (clima == "lluvia")
+                avance += 2;
+
+            return avance;
         }
     }
 }

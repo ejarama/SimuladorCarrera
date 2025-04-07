@@ -12,15 +12,21 @@ namespace wSimuladorCarrera
 
         public string Tipo { get; set; }
 
-        private int DistanciaRecorrida { get; set; }
+        public int DistanciaRecorrida { get; protected set; }
 
-        public Auto(string nombre, string tipo, int distanciaRecorrida)
+        public Auto(string nombre, string tipo )
         {
             this.Nombre = nombre;
             this.Tipo = tipo;
-            this.DistanciaRecorrida = distanciaRecorrida;
+            this.DistanciaRecorrida = 0;
+            
         }
 
-        public abstract void Avanzar();
+        public abstract int Avanzar(string clima);
+
+        public void calcularAcance(int metros)
+        {
+            DistanciaRecorrida += metros;
+        }
     }
 }

@@ -8,13 +8,18 @@ namespace wSimuladorCarrera
 {
     public class AutoDeportivo : Auto
     {
-        public AutoDeportivo(string nombre, string tipo, int distanciaRecorrida) : base(nombre,tipo, distanciaRecorrida)
+        int BonoClimaSoleado = 3;
+        public AutoDeportivo(string nombre, string tipo) : base(nombre,tipo)
         {
 
         }
-        public override void Avanzar()
+        public override int Avanzar(string clima)
         {
-            throw new NotImplementedException();
+            int avance = new Random().Next(5, 16);
+            if(clima == "soleado")
+                avance += 3;
+            return avance;
+
         }
     }
 }
