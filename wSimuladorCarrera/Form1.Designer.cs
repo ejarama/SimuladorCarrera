@@ -44,6 +44,9 @@ namespace wSimuladorCarrera
             this.btnIniciarCarrera = new System.Windows.Forms.Button();
             this.btnSigTurno = new System.Windows.Forms.Button();
             this.lblMensajes = new System.Windows.Forms.Label();
+            this.panelBarras = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnReiniciar = new System.Windows.Forms.Button();
+            this.panelBarras.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -124,16 +127,16 @@ namespace wSimuladorCarrera
             this.lstParticipantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstParticipantes.FormattingEnabled = true;
             this.lstParticipantes.ItemHeight = 20;
-            this.lstParticipantes.Location = new System.Drawing.Point(626, 112);
+            this.lstParticipantes.Location = new System.Drawing.Point(54, 324);
             this.lstParticipantes.Name = "lstParticipantes";
-            this.lstParticipantes.Size = new System.Drawing.Size(221, 144);
+            this.lstParticipantes.Size = new System.Drawing.Size(221, 104);
             this.lstParticipantes.TabIndex = 7;
             // 
             // lblParticipantes
             // 
             this.lblParticipantes.AutoSize = true;
             this.lblParticipantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblParticipantes.Location = new System.Drawing.Point(652, 81);
+            this.lblParticipantes.Location = new System.Drawing.Point(50, 288);
             this.lblParticipantes.Name = "lblParticipantes";
             this.lblParticipantes.Size = new System.Drawing.Size(147, 20);
             this.lblParticipantes.TabIndex = 8;
@@ -178,7 +181,7 @@ namespace wSimuladorCarrera
             this.btnIniciarCarrera.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciarCarrera.Location = new System.Drawing.Point(279, 228);
             this.btnIniciarCarrera.Name = "btnIniciarCarrera";
-            this.btnIniciarCarrera.Size = new System.Drawing.Size(133, 28);
+            this.btnIniciarCarrera.Size = new System.Drawing.Size(141, 28);
             this.btnIniciarCarrera.TabIndex = 12;
             this.btnIniciarCarrera.Text = "Iniciar Carrera";
             this.btnIniciarCarrera.UseVisualStyleBackColor = false;
@@ -187,29 +190,51 @@ namespace wSimuladorCarrera
             // btnSigTurno
             // 
             this.btnSigTurno.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSigTurno.Enabled = false;
             this.btnSigTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSigTurno.Location = new System.Drawing.Point(455, 228);
+            this.btnSigTurno.Location = new System.Drawing.Point(448, 228);
             this.btnSigTurno.Name = "btnSigTurno";
-            this.btnSigTurno.Size = new System.Drawing.Size(133, 28);
+            this.btnSigTurno.Size = new System.Drawing.Size(141, 28);
             this.btnSigTurno.TabIndex = 13;
             this.btnSigTurno.Text = "Siguiente Turno";
             this.btnSigTurno.UseVisualStyleBackColor = false;
+            
             // 
             // lblMensajes
             // 
             this.lblMensajes.AutoSize = true;
             this.lblMensajes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensajes.Location = new System.Drawing.Point(622, 307);
+            this.lblMensajes.Location = new System.Drawing.Point(3, 0);
             this.lblMensajes.Name = "lblMensajes";
             this.lblMensajes.Size = new System.Drawing.Size(0, 20);
             this.lblMensajes.TabIndex = 14;
+            // 
+            // panelBarras
+            // 
+            this.panelBarras.Controls.Add(this.lblMensajes);
+            this.panelBarras.Location = new System.Drawing.Point(295, 288);
+            this.panelBarras.Name = "panelBarras";
+            this.panelBarras.Size = new System.Drawing.Size(333, 177);
+            this.panelBarras.TabIndex = 15;
+            // 
+            // btnReiniciar
+            // 
+            this.btnReiniciar.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnReiniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReiniciar.Location = new System.Drawing.Point(84, 438);
+            this.btnReiniciar.Name = "btnReiniciar";
+            this.btnReiniciar.Size = new System.Drawing.Size(141, 27);
+            this.btnReiniciar.TabIndex = 16;
+            this.btnReiniciar.Text = "Reiniciar Carrera";
+            this.btnReiniciar.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(881, 514);
-            this.Controls.Add(this.lblMensajes);
+            this.ClientSize = new System.Drawing.Size(678, 500);
+            this.Controls.Add(this.btnReiniciar);
+            this.Controls.Add(this.panelBarras);
             this.Controls.Add(this.btnSigTurno);
             this.Controls.Add(this.btnIniciarCarrera);
             this.Controls.Add(this.lblClima);
@@ -226,6 +251,8 @@ namespace wSimuladorCarrera
             this.Controls.Add(this.txtNombre);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.panelBarras.ResumeLayout(false);
+            this.panelBarras.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,6 +275,8 @@ namespace wSimuladorCarrera
         private System.Windows.Forms.Button btnIniciarCarrera;
         private System.Windows.Forms.Button btnSigTurno;
         private System.Windows.Forms.Label lblMensajes;
+        private System.Windows.Forms.FlowLayoutPanel panelBarras;
+        private System.Windows.Forms.Button btnReiniciar;
     }
 }
 

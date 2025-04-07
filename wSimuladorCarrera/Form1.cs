@@ -79,6 +79,40 @@ namespace wSimuladorCarrera
                 Carrera.Instancia.establecerClima(clima);
                 Carrera.Instancia.iniciarCarrera();
                 btnAgregarAuto.Enabled = false;
+                btnSigTurno.Enabled = true;
+                btnIniciarCarrera.Enabled = false;
+
+                Label lblClimaSel = new Label();
+                lblClimaSel.Text = $"Clima de la Carrera: { Carrera.Instancia.Clima.ToUpper()}";
+                lblClimaSel.Width = 250;
+                lblClimaSel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                panelBarras.Controls.Add(lblClimaSel);
+
+                //crear barras de progreso para los participantes
+                List<Auto> participantes = Carrera.Instancia.ObtenerParcipantes();
+                foreach (var auto in participantes)
+                {
+                    //label para el nombre
+                    Label lblNomAuto = new Label();
+                    lblNomAuto.Text = auto.Nombre;
+                    lblNomAuto.Width = 200;
+
+                    //barra de progreso
+                    ProgressBar barra = new ProgressBar();
+                    barra.Minimum = 0;
+                    barra.Maximum = 150;
+                    barra.Value = 0;
+                    barra.Width = 200;
+                    barra.Height = 20;
+                    barra.Name = $"barra_{auto.Nombre}";
+
+                    //agregar labels y barras al panel
+                   
+                    panelBarras.Controls.Add(barra);
+                    panelBarras.Controls.Add(lblNomAuto);
+
+                }
+
             }
             catch (Exception ex)
             {
@@ -86,5 +120,7 @@ namespace wSimuladorCarrera
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK);
             }
         }
+
+      
     }
 }
