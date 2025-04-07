@@ -182,6 +182,7 @@ namespace wSimuladorCarrera
             this.btnIniciarCarrera.TabIndex = 12;
             this.btnIniciarCarrera.Text = "Iniciar Carrera";
             this.btnIniciarCarrera.UseVisualStyleBackColor = false;
+            this.btnIniciarCarrera.Click += new System.EventHandler(this.btnIniciarCarrera_Click);
             // 
             // btnSigTurno
             // 

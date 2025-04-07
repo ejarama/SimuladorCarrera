@@ -65,5 +65,26 @@ namespace wSimuladorCarrera
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK);
             }
         }
+
+        private void btnIniciarCarrera_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string clima = "";
+                if (cmbClima.SelectedIndex == -1)
+                    throw new ArgumentException("Debe seleccionar el clima para la carrera.");
+                else
+                    clima = cmbClima.SelectedItem.ToString().ToLower();
+
+                Carrera.Instancia.establecerClima(clima);
+                Carrera.Instancia.iniciarCarrera();
+                btnAgregarAuto.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK);
+            }
+        }
     }
 }
