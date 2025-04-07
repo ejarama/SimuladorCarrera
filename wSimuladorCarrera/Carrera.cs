@@ -96,16 +96,17 @@ namespace wSimuladorCarrera
                     if (hayObstaculo && indiceParticipante == Participantes.IndexOf(auto))
                     {
                         avance = Math.Max(0, avance - 5);
-                        resultado = $"{auto.Nombre} encontró un obstáculo (-5m) de anvace.\n";
+                        resultado += $"{auto.Nombre} encontró un obstáculo (-5m) de anvace.\n";
                     }
 
                     auto.calcularAcance(avance);
-                    resultado += $"{auto.Nombre} avanza {avance} metros, Total recorrido {auto.DistanciaRecorrida}\n";
+                    resultado += $"{auto.Nombre} avanza {avance} metros, Total recorrido {Math.Min(150,auto.DistanciaRecorrida)}\n";
 
                     if(auto.DistanciaRecorrida >= 150)
                     {
                         Terminada = true;
                         resultado += $"¡{auto.Nombre} ha ganado la carrera!\n";
+                        return resultado;
 
                     }
     

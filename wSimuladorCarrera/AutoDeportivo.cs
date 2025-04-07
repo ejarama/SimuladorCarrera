@@ -8,11 +8,7 @@ namespace wSimuladorCarrera
 {
     public class AutoDeportivo : Auto
     {
-        int BonoClimaSoleado = 3;
-        public AutoDeportivo(string nombre, string tipo) : base(nombre,tipo)
-        {
-
-        }
+        public AutoDeportivo(string nombre) : base(nombre, "Deportivo"){}
         public override int Avanzar(string clima)
         {
             int avance = new Random().Next(5, 16);

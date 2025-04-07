@@ -121,6 +121,25 @@ namespace wSimuladorCarrera
             }
         }
 
-      
+        private void btnSigTurno_Click(object sender, EventArgs e)
+        {
+            string mensaje = Carrera.Instancia.siguienteTurno();
+            List<Auto> participantes = Carrera.Instancia.ObtenerParcipantes();
+            foreach (var auto in participantes)
+            {
+                var barra = panelBarras.Controls.OfType<ProgressBar>().FirstOrDefault(pb => pb.Name == $"barra_{auto.Nombre}");
+
+                if (barra != null)
+                    barra.Value = Math.Min(150, auto.DistanciaRecorrida);
+
+                if (auto.DistanciaRecorrida >= 150)
+                    btnSigTurno.Enabled = false;
+                
+            }
+            lblMensajes.Visible = true;
+            lblMensajes.Text = "Resultados: \n" + mensaje;
+        }
+
+        
     }
 }

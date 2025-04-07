@@ -8,7 +8,7 @@ namespace wSimuladorCarrera
 {
     class AutoTodoterreno : Auto
     {
-        public AutoTodoterreno(string nombre, string tipo):base(nombre, tipo) { }
+        public AutoTodoterreno(string nombre):base(nombre, "Todoterreno") { }
         public override int Avanzar(string clima)
         {
             int avance = new Random().Next(5, 16);

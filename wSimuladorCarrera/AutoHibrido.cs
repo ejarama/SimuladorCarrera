@@ -8,7 +8,7 @@ namespace wSimuladorCarrera
 {
     class AutoHibrido : Auto
     {
-        public AutoHibrido(string nombre, string tipo):base(nombre,tipo) { }
+        public AutoHibrido(string nombre):base(nombre,"Hibrido") { }
         public override int Avanzar(string clima)
         {
             int avance = new Random().Next(5, 16);
