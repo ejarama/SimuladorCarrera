@@ -11,11 +11,20 @@ namespace wSimuladorCarrera
         public AutoHibrido(string nombre):base(nombre,"Hibrido") { }
         public override int Avanzar(string clima, int avance)
         {
-            
-            if (clima == "ventoso")
-                avance -= 1;
 
-            return avance;
+            try
+            {
+                if (clima == "ventoso")
+                    avance -= 1;
+
+                return avance;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException(ex.Message);
+            }
         }
     }
 }

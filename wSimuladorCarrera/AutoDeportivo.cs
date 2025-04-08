@@ -11,10 +11,19 @@ namespace wSimuladorCarrera
         public AutoDeportivo(string nombre) : base(nombre, "Deportivo"){}
         public override int Avanzar(string clima, int avance)
         {
-            
-            if(clima == "soleado")
-                avance += 3;
-            return avance;
+
+            try
+            {
+                if (clima == "soleado")
+                    avance += 3;
+                return avance;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException(ex.Message);
+            }
 
         }
     }

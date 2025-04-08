@@ -65,19 +65,35 @@ namespace wSimuladorCarrera
 
         public void agregarAuto(Auto auto)
         {
-            
-            if (Participantes.Any(c => c.Nombre == auto.Nombre))
-                throw new ArgumentException("Error: El auto ya existe");
 
-            Participantes.Add(auto);
+            try
+            {
+                if (Participantes.Any(c => c.Nombre == auto.Nombre))
+                    throw new ArgumentException("Error: El auto ya existe");
+
+                Participantes.Add(auto);
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException("Error: " + ex.Message);
+            }
         }
 
         public void iniciarCarrera()
         {
-            if (Participantes.Count < 3)
-                throw new ArgumentException("Se requieren almenos 3 autos registrados para comenzar la carrera");
+            try
+            {
+                if (Participantes.Count < 3)
+                    throw new ArgumentException("Se requieren almenos 3 autos registrados para comenzar la carrera");
 
-            EnCurso = true;
+                EnCurso = true;
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException("Error: " + ex.Message);
+            }
         }
 
         public string siguienteTurno()
@@ -126,10 +142,18 @@ namespace wSimuladorCarrera
 
         public void reiniciarCarrera()
         {
-            Participantes.Clear();
-            EnCurso = false;
-            Terminada = false;
-            Clima = null;
+            try
+            {
+                Participantes.Clear();
+                EnCurso = false;
+                Terminada = false;
+                Clima = null;
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException("Error: " + ex.Message);
+            }
         }
     }
 }

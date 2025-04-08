@@ -82,6 +82,10 @@ namespace wSimuladorCarrera
                 btnAgregarAuto.Enabled = false;
                 btnSigTurno.Enabled = true;
                 btnIniciarCarrera.Enabled = false;
+                cmbClima.Enabled = false;
+                txtNombre.Enabled = false;
+                cmbTipo.Enabled = false;
+
 
                 Label lblClimaSel = new Label();
                 lblClimaSel.Text = $"Clima de la Carrera: { Carrera.Instancia.Clima.ToUpper()}";
@@ -124,35 +128,54 @@ namespace wSimuladorCarrera
 
         private void btnSigTurno_Click(object sender, EventArgs e)
         {
-            string mensaje = Carrera.Instancia.siguienteTurno();
-            List<Auto> participantes = Carrera.Instancia.ObtenerParcipantes();
-            foreach (var auto in participantes)
+            try
             {
-                var barra = panelBarras.Controls.OfType<ProgressBar>().FirstOrDefault(pb => pb.Name == $"barra_{auto.Nombre}");
+                string mensaje = Carrera.Instancia.siguienteTurno();
+                List<Auto> participantes = Carrera.Instancia.ObtenerParcipantes();
+                foreach (var auto in participantes)
+                {
+                    var barra = panelBarras.Controls.OfType<ProgressBar>().FirstOrDefault(pb => pb.Name == $"barra_{auto.Nombre}");
 
-                if (barra != null)
-                    barra.Value = Math.Min(150, auto.DistanciaRecorrida);
+                    if (barra != null)
+                        barra.Value = Math.Min(150, auto.DistanciaRecorrida);
 
-                if (auto.DistanciaRecorrida >= 150)
-                    btnSigTurno.Enabled = false;
-                
+                    if (auto.DistanciaRecorrida >= 150)
+                        btnSigTurno.Enabled = false;
+
+                }
+                lblMensajes.Visible = true;
+                lblMensajes.Text = "Resultados: \n" + mensaje;
+
             }
-            lblMensajes.Visible = true;
-            lblMensajes.Text = "Resultados: \n" + mensaje;
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK);
+            }
         }
 
         private void btnReiniciar_Click(object sender, EventArgs e)
         {
-            btnAgregarAuto.Enabled = true;
-            btnIniciarCarrera.Enabled = true;
-            btnSigTurno.Enabled = false;
-            cmbClima.SelectedIndex = -1;
-            
-            lblMensajes.Text = "Carrera reiniciada. Ingrese nuevos autos.";
-            lstParticipantes.Items.Clear();
-            panelBarras.Controls.Clear();
-            Carrera.Instancia.reiniciarCarrera();
-            
+            try
+            {
+                btnAgregarAuto.Enabled = true;
+                btnIniciarCarrera.Enabled = true;
+                btnSigTurno.Enabled = false;
+                cmbClima.SelectedIndex = -1;
+                cmbClima.Enabled = true;
+                txtNombre.Enabled = true;
+                cmbTipo.Enabled = true;
+                lblMensajes.Text = "Carrera reiniciada. Ingrese nuevos autos.";
+                lstParticipantes.Items.Clear();
+                panelBarras.Controls.Clear();
+                Carrera.Instancia.reiniciarCarrera();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK);
+            }
+
         }
     }
 }

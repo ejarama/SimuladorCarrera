@@ -11,11 +11,19 @@ namespace wSimuladorCarrera
         public AutoTodoterreno(string nombre):base(nombre, "Todoterreno") { }
         public override int Avanzar(string clima, int avance)
         {
-            
-            if (clima == "lluvia")
-                avance += 2;
+            try
+            {
+                if (clima == "lluvia")
+                    avance += 2;
 
-            return avance;
+                return avance;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException(ex.Message);
+            }
         }
     }
 }

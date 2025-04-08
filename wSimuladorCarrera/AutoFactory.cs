@@ -10,16 +10,25 @@ namespace wSimuladorCarrera
     {
         public static Auto CrearAuto(string nombre, string tipo)
         {
-            switch (tipo)
+            try
             {
-                case "Deportivo":
-                    return new AutoDeportivo(nombre);
-                case "Todoterreno":
-                    return new AutoTodoterreno(nombre);
-                case "Hibrido":
-                    return new AutoHibrido(nombre);
-                default:
-                    throw new ApplicationException("El tipo de auto no está definido");
+                switch (tipo)
+                {
+                    case "Deportivo":
+                        return new AutoDeportivo(nombre);
+                    case "Todoterreno":
+                        return new AutoTodoterreno(nombre);
+                    case "Hibrido":
+                        return new AutoHibrido(nombre);
+                    default:
+                        throw new ApplicationException("El tipo de auto no está definido");
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw new ApplicationException("El tipo de auto no está definido");
             }
         }
 
